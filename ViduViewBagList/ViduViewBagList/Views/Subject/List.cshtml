@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+}
+@model List<ViduViewBagList.Models.SubjectModel>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <ul>
+            @foreach (var i in Model)
+            {
+                <li>@i.Id <i>@i.Name </i> @i.Num</li>
+            }
+        </ul>
+        <ul>
+            @foreach (var i in Model)
+            {
+                <li>@i.Id <i>@i.Name </i> @i.Num</li>
+            }
+        </ul>
+    </div>
+</body>
+</html>

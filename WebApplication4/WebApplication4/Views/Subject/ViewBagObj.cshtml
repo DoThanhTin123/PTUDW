@@ -1,0 +1,19 @@
+﻿@{
+    Layout = null;
+    WebApplication4.Models.SubjectModel subject =
+    (WebApplication4.Models.SubjectModel)ViewBag.Subject;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        @subject.Id, @subject.Name, @subject.Num
+    </div>
+</body>
+</html>
