@@ -1,0 +1,20 @@
+﻿@model VD1.Models.StrongView
+@{ Layout = null;}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>StrongHelper</title>
+</head>
+<body>
+    <div>
+        <h3>StrongView</h3>
+        <h4>Id @Html.CheckBoxFor(model => model.Id)</h4>
+        <h4>Name @Html.CheckBoxFor(model => model.Name)</h4>
+        <h4>Male @Html.CheckBoxFor(model => model.Gender)</h4>
+        <h4> List skills </h4>
+        @Html.ListBoxFor(model => model.skills, new
+        SelectList(Enum.GetValues(typeof(VD1.Models.skills))))
+    </div>
+</body>
+</html>
