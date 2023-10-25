@@ -12,24 +12,30 @@ namespace MyClass.DAO
     {
         private MyDBContext db = new MyDBContext();
 
-        public List<Categories> getList() 
+        //INDEX
+        public List<Categories> getList()
         {
             return db.Categories.ToList();
         }
 
-        public List<Categories> getList(string status = "ALL")
+        //INDEX dua vao Status =1,2, con Status =0 == thung rac
+        public List<Categories> getList(string status = "All")
         {
             List<Categories> list = null;
             switch (status)
             {
-                case "INDEX":
+                case "Index":
                     {
-                        list = db.Categories.Where(m => m.Status != 0).ToList();
+                        list = db.Categories
+                            .Where(m => m.Status != 0)
+                            .ToList();
                         break;
                     }
-                case "TRASH":
+                case "Trash":
                     {
-                        list = db.Categories.Where(m => m.Status != 0).ToList();
+                        list = db.Categories
+                            .Where(m => m.Status == 0)
+                            .ToList();
                         break;
                     }
                 default:
@@ -41,7 +47,8 @@ namespace MyClass.DAO
             return list;
         }
 
-        public Categories getRow(int? id) 
+        //DETAILS
+        public Categories getRow(int? id)
         {
             if (id == null)
             {
@@ -53,18 +60,21 @@ namespace MyClass.DAO
             }
         }
 
+        //CREATE
         public int Insert(Categories row)
         {
             db.Categories.Add(row);
             return db.SaveChanges();
         }
 
+        //UPDATE
         public int Update(Categories row)
         {
             db.Entry(row).State = EntityState.Modified;
             return db.SaveChanges();
         }
 
+        //DELETE
         public int Delete(Categories row)
         {
             db.Categories.Remove(row);
